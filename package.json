@@ -1,0 +1,24 @@
+{
+    "name": "bazel",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Runs an action using Bazel",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "ncc build src/bazel.ts",
+        "prerelease": "npm run-script build",
+        "release": "git add -f dist/index.js"
+    },
+    "author": "Cocotec",
+    "license": "MIT",
+    "dependencies": {
+        "@actions/core": "^1.0.0",
+        "@actions/exec": "^1.0.0",
+        "@actions/tool-cache": "^1.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^12.0.4",
+        "@zeit/ncc": "^0.20.5",
+        "typescript": "^3.5.1"
+    }
+}
