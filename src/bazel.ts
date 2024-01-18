@@ -14,19 +14,14 @@ async function run() {
             "--color=yes",
             "--curses=no",
             "--keep_going",
-            "--experimental_multi_threaded_digest",
-            "--experimental_repository_cache_hardlinks",
         ]
-        if (process.platform == "win32") {
-            flags.push("--enable_runfiles=true")
-        }
         if (command[0] == "test") {
             flags.push("--test_output=errors")
         }
         flags = flags.concat(command.slice(1))
         await exec.exec(`${bazeliskPath} ${flags.join(' ')}`);
     } catch (error) {
-        core.setFailed(error.message);
+        core.setFailed(error instanceof Error ? error.message : "unknown error");
     }
 }
 
