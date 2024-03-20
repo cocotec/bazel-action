@@ -1,12 +1,12 @@
-name: 'Run Bazel'
-description: 'Downloads bazel using bazelisk and then executes an action using it'
+name: "Run Bazel"
+description: "Downloads bazel using bazelisk and then executes an action using it"
 inputs:
   command:
-    description: 'The command to run using bazel'
+    description: "The command to run using bazel"
     required: true
   bazelisk-version:
-    description: 'The version of bazelisk to use'
+    description: "The version of bazelisk to use"
     default: 1.19.0
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node20"
+  main: "dist/index.js"
